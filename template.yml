@@ -63,6 +63,12 @@ Resources:
             Path: /hello/{name}
             Method: get
 
+  MusasabiPdfDemoBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Sub "awscodestar-&{ProjectId}-bucket-musasabi-demo-python"
+
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
