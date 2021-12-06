@@ -46,28 +46,22 @@ Resources:
             Path: /
             Method: post
 
-    PdfDownload:
-      Type: AWS::Serverless::Function
-      Properties:
-        FunctionName: !Sub "awscodestar-${ProjectId}-lambda-PdfDownload"
-        Handler: make_pdf_function.handler
-        Runtime: python3.7
-        Role:
-          Fn::GetAtt:
-            - LambdaExecutionRole
-            - Arn
-        Events:
-          GetEvent:
-            Type: Api
-            Properties:
-              Path: /download/{bucket}/
-              Method: get
-
-    PdfBucket:
-      Type: AWS::S3::Bucket
-      DeletionPolicy: Retain
-      Properties:
-        BucketName: musasabi-demo-python-bucket
+  Hello:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "awscodestar-${ProjectId}-lambda-Hello"
+      Handler: hello.handler
+      Runtime: python3.7
+      Role:
+        Fn::GetAtt:
+          - LambdaExecutionRole
+          - Arn
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /hello/{name}
+            Method: get
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
