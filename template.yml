@@ -63,23 +63,6 @@ Resources:
             Path: /hello/{name}
             Method: get
 
-  PdfDownload:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub "awscodestar-${ProjectId}-lambda-PdfDownload"
-      Handler: pdf_download.handler
-      Runtime: python3.7
-      Role:
-        Fn::GetAtt:
-          - LambdaExecutionRole
-          - Arn
-      Events:
-        GetEvent:
-          Type: Api
-          Properties:
-            Path: /download/{bucket}
-            Method: get
-
   MusasabiPdfDemoBucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
