@@ -77,7 +77,7 @@ Resources:
         GetEvent:
           Type: Api
           Properties:
-            Path: /hello/{name}
+            Path: /download/{bucket}
             Method: get
 
   MusasabiPdfDemoBucket:
