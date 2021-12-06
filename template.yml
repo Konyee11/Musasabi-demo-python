@@ -69,9 +69,6 @@ Resources:
       FunctionName: !Sub "awscodestar-${ProjectId}-lambda-PdfDownload"
       Handler: pdf_download.handler
       Runtime: python3.7
-      Policies:
-        - S3CrudPolicy:
-            BucketName: !Ref MusasabiPdfDemoBucket
       Role:
         Fn::GetAtt:
           - LambdaExecutionRole
