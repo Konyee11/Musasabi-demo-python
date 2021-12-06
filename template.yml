@@ -67,7 +67,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
-      BucketName: !Sub "awscodestar-&{ProjectId}-bucket-musasabi-demo-python"
+      BucketName: musasabi-pdf-demo-bucket
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
